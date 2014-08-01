@@ -1,6 +1,6 @@
 {
   "name": "level-continuation",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Use continuation tokens to continue from the last key in a read stream.",
   "main": "index.js",
   "scripts": {
