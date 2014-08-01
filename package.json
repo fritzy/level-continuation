@@ -1,0 +1,27 @@
+{
+  "name": "level-continuation",
+  "version": "0.0.0",
+  "description": "Use continuation tokens to continue from the last key in a read stream.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fritzy/level-continuation.git"
+  },
+  "keywords": [
+    "level",
+    "db",
+    "database",
+    "continuation",
+    "page",
+    "pagination"
+  ],
+  "author": "Nathan Fritz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fritzy/level-continuation/issues"
+  },
+  "homepage": "https://github.com/fritzy/level-continuation"
+}
