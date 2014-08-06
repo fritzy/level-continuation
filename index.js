@@ -1,16 +1,17 @@
 var stream = require('stream');
 var util = require('util');
 
-function TransformContinuation(opts) {
-    opts = opts || {};
-    opts.objectMode = true;
-    stream.Transform.call(this, opts);
+function TransformContinuation(limit) {
+    this.limit = limit;
+    this.count = 0;
+    stream.Transform.call(this, {objectMode: true});
 }
 
 util.inherits(TransformContinuation, stream.Transform);
 
 TransformContinuation.prototype._transform = function (chunk, enc, next) {  
-    if (typeof chunk === 'object') {
+    this.count += 1;
+    if (this.count === this.limit && typeof chunk === 'object') {
         if (!chunk.extra) {
             chunk.extra = {};
         }
@@ -37,7 +38,7 @@ function LevelContinuation(_db, opts) {
                 options.start = lastkey + '~';
             }
         }
-        return db.parent.createReadStream(options).pipe(new TransformContinuation());
+        return db.parent.createReadStream(options).pipe(new TransformContinuation(options.limit));
     };
 
     return db;
